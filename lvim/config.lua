@@ -21,7 +21,7 @@ lvim.lsp.buffer_mappings.normal_mode.gv = { ":vsplit | lua vim.lsp.buf.implement
 lvim.builtin.nvimtree.setup.view.width = 40
 lvim.builtin.lualine.sections.lualine_c = { { 'filename', path = 1 } }
 lvim.builtin.gitsigns.opts.current_line_blame = true
--- lvim.transparent_window = true
+lvim.transparent_window = true
 -- lvim.builtin.which_key.mappings["t"] = { "<cmd>ToggleTerm direction=horizontal size=30<cr>", "Terminal" }
 
 
@@ -50,10 +50,18 @@ formatters.setup {
 
 -- })
 
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Terminal",
+  f = { "<cmd>ToggleTerm<cr>", "Floating terminal" },
+  v = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
+  h = { "<cmd>2ToggleTerm size=50 direction=horizontal<cr>", "Split horizontal" },
+}
 
 lvim.plugins = {
   { "arcticicestudio/nord-vim" },
-  { "sainnhe/edge" }
+  { "sainnhe/edge" },
+  { "morhetz/gruvbox" },
+  { "folke/tokyonight.nvim" }
 }
 
--- lvim.colorscheme = ''
+-- lvim.colorscheme = 'tokyonight'
