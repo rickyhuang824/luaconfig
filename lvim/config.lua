@@ -52,7 +52,7 @@ formatters.setup {
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Terminal",
-  f = { "<cmd>ToggleTerm<cr>", "Floating terminal" },
+  f = { "<cmd>ToggleTerm direction=float<cr>", "Floating terminal" },
   v = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
   h = { "<cmd>2ToggleTerm size=50 direction=horizontal<cr>", "Split horizontal" },
 }
@@ -61,7 +61,16 @@ lvim.plugins = {
   { "arcticicestudio/nord-vim" },
   { "sainnhe/edge" },
   { "morhetz/gruvbox" },
-  { "folke/tokyonight.nvim" }
+  { "folke/tokyonight.nvim" },
+  {
+    "f-person/git-blame.nvim",
+    event = "BufRead",
+    config = function()
+      vim.cmd "highlight default link gitblame SpecialComment"
+      require("gitblame").setup { enabled = false }
+    end,
+  },
+  { "NLKNguyen/papercolor-theme" }
 }
 
 -- lvim.colorscheme = 'tokyonight'
